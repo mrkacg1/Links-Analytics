@@ -1,17 +1,15 @@
 version: 0.2
 phases:
   install:
-    runtime-versions:
-      nodejs: latest
     commands:
       - echo Commands...
   pre_build:
     commands:  
-      - docker login --username "aldigitalcol" --password-stdin "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
+      - docker login --username aldigitalcol --password-stdin dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
-      - npm run test
+      - echo Build started on `date`
       - docker build -t $REPOSITORY_URI:main -f Dockerfile .
       - docker tag latest
   post_build:
