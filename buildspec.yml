@@ -11,7 +11,7 @@ phases:
      # - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
   pre_build:
     commands:    
-      - docker login --username "$USER_DOCKER" --password-stdin
+      - docker login --username "$USER_DOCKER" --password "$PASS_DOCKER"
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
