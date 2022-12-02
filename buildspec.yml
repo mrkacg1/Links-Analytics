@@ -17,6 +17,6 @@ phases:
   post_build:
     commands:
       - docker push aldigitalcol/mastertools-link-analytics:latest
-      - printf '[{"name":"link-analytics-new-app","imageUri":"%s"}]' aldigitalcol/mastertools-link-analytics:latest > imagedefinitions.json
+      - printf '[{"name":"nk-analytics-app-dev-task","imageUri":"%s"}]' aldigitalcol/mastertools-link-analytics:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
