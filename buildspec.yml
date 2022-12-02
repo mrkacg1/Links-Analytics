@@ -12,7 +12,7 @@ phases:
   pre_build:
     commands:  
       - npm install 
-      - echo "$PASS_DOCKER" | docker login --username "$USER_DOCKER" --password-stdin
+      -  docker login --username "$USER_DOCKER" -p "$PASS_DOCKER"
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
