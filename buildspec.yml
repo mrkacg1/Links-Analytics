@@ -1,11 +1,18 @@
 version: 0.2
+env: 
+  USER_DOCKER: "aldigitalcol"
+  PASS_DOCKER: "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
     commands:
       - echo Commands...
+      - npm install -g mocha
   pre_build:
     commands:  
-      - docker login --username aldigitalcol --password-stdin dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM
+      - npm install 
+      - echo "$PASS_DOCKER" | docker login --username "$USER_DOCKER" --password-stdin
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
