@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: latest
+      php: latest
     commands:
       - echo Commands...
       - npm install -g mocha
@@ -10,15 +10,14 @@ phases:
     commands:  
       - npm install 
       - docker login -u aldigitalcol -p dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM
-      - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
       - echo Build started on `date`
-      - docker build -t $REPOSITORY_URI:main -f Dockerfile .
+      - docker build -t aldigitalcol/mastertools-link-analytics:latest -f Dockerfile .
       - docker tag latest
   post_build:
     commands:
-      - docker push $REPOSITORY_URI:latest
-      - printf '[{"name":"links-analytics-new-app-container","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - docker push aldigitalcol/mastertools-link-analytics:latest
+      - printf '[{"name":"links-analytics-new-app-container","imageUri":"%s"}]' aldigitalcol/mastertools-link-analytics:latest > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
