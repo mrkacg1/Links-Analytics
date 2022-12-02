@@ -22,5 +22,5 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:latest
       - printf '[{"name":"links-analytics-new-app-container","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
-  artifacts:
-    files: imagedefinitions.json
+artifacts:
+  files: imagedefinitions.json
