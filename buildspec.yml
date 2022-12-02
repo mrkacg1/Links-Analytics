@@ -1,7 +1,7 @@
 version: 0.2
 env: 
-    USER_DOCKER: "aldigitalcol"
-    PASS_DOCKER: "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
+  USER_DOCKER: "aldigitalcol"
+  PASS_DOCKER: "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
 phases:
   install:
     runtime-versions:
