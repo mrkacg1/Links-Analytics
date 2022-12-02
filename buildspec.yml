@@ -4,17 +4,19 @@ env:
     PASS_DOCKER: "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
 phases:
   install:
+    runtime-versions:
+      nodejs: latest
     commands:
-    - echo No commands...
-     # Start Mysql if you need it
-     # - apt-get install -y mysql-server
-     # - su mysql -s /bin/bash -c "/usr/sbin/mysqld" &
+      - echo Installing Mocha...
+      - npm install -g mocha
   pre_build:
-    commands:    
+    commands:
+      - npm install    
       - echo "$PASS_DOCKER" | docker login --username "$USER_DOCKER" --password-stdin
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
+      - npm run test
       - docker build -t $REPOSITORY_URI:main -f Dockerfile .
       - docker tag latest
   post_build:
