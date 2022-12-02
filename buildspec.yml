@@ -1,7 +1,4 @@
 version: 0.2
-env: 
-  USER_DOCKER: "aldigitalcol"
-  PASS_DOCKER: "dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM"
 phases:
   install:
     runtime-versions:
@@ -12,7 +9,7 @@ phases:
   pre_build:
     commands:  
       - npm install 
-      -  docker login --username "$USER_DOCKER" -p "$PASS_DOCKER"
+      - docker login -u aldigitalcol -p dckr_pat_9dkaNTLxApRd0FkfagHAptgGRYM
       - REPOSITORY_URI=aldigitalcol/mastertools-link-analytics:latest
   build:
     commands:
