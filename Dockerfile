@@ -14,4 +14,4 @@ RUN apt-get update && \
 COPY 000-default.conf /etc/apache2/sites-available
 RUN a2enmod rewrite
 RUN service apache2 restart
-EXPOSE 3001
+EXPOSE 80
