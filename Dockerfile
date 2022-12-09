@@ -8,11 +8,9 @@ RUN mkdir -p /usr/src/php/ext/imagick; \
 RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo pdo_mysql
 RUN docker-php-ext-install gd
-RUN apt-get update -y && apt-get install -y sendmail libpng-dev
 RUN apt-get update && \
     apt-get install -y \
         zlib1g-dev 
 COPY 000-default.conf /etc/apache2/sites-available
 RUN a2enmod rewrite
 RUN service apache2 restart
-EXPOSE 3001
